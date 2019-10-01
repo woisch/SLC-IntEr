@@ -323,74 +323,9 @@ hi:
 
 \--------------------------
 
+
+
 msg_06
-======
-
-tc: IF cohort=1
-
-vn: landeltvat_154, landeltmut_154, eltvat1_154, eltvat2_154, eltvat3_154,
-eltmut1_154, eltmut2_154, eltmut3_154
-
-qt: 2x Einfachauswahl vertikale ao mit je 3 offenen Angaben
-
-hl:
-
-in:
-
-q: Ist eines Ihrer Großelternteile väterlicherseits bzw. mütterlicherseits im
-Ausland geboren?
-
-is: Bitte beziehen Sie Ihre Angaben auf die heutigen Staatsgrenzen.
-
-st:
-
-it:
-
-ao1:1: beide Großeltern im Ausland geboren, und zwar in: [string]/ [string]
-(eltvat1_154, eltvat2_154)
-
-ao2:2: ein Großelternteil im Ausland geboren, und zwar in: [string]
-(eltvat2_154)
-
-ao3:3: kein Großelternteil im Ausland geboren
-
-ao4:4: Ist mir nicht bekannt
-
-ao5:1: beide Großeltern im Ausland geboren, und zwar in: [string]/ [string]
-(eltmut1_154, eltmut2_154)
-
-ao6:2: ein Großelternteil im Ausland geboren, und zwar in: [string]
-(eltmut3_154)
-
-ao7:3: kein Großelternteil im Ausland geboren
-
-ao8:4: Ist mir nicht bekannt
-
-mv:
-
-ka1: ka1 (ao1 TO ao4) väterlicherseits
-
-ka2: ka2 (ao5 TO ao8) mütterlicherseits
-
-vc:
-
-av:
-
-kh:
-
-fv:
-
-hv:
-
-fo:
-
-tr: GOTO msg_07
-
-hi: Umsetzung siehe Studienberechtigte 18.2 (block712)
-
-\--------------------------
-
-msg_07
 ======
 
 tc: IF cohort=1
@@ -441,7 +376,7 @@ hv:
 
 fo:
 
-tr: GOTO msg_08
+tr: GOTO msg_07
 
 hi: Umsetzung siehe Studienberechtigte 18.2 (block711)
 
@@ -449,7 +384,7 @@ Umsetzung ka1 und ka2 in zwei Fragen (?)
 
 \--------------------------
 
-msg_08
+msg_07
 ======
 
 tc: IF cohort=1
@@ -496,19 +431,19 @@ fo:
 
 tr:
 
->   GOTO msg_09 IF bezstand_154=MISSING AND sf_bezstand_154=1
+>   GOTO msg_08 IF bezstand_154=MISSING AND sf_bezstand_154=1
 
->   GOTO msg_09 IF bezstand_154=1 OR bezstand_154=2
+>   GOTO msg_08 IF bezstand_154=1 OR bezstand_154=2
 
->   GOTO msg_10 IF bezstand_154=3
+>   GOTO msg_09 IF bezstand_154=3
 
->   GOTO msg_08 IF bezstand_154=MISSING
+>   GOTO msg_07 IF bezstand_154=MISSING
 
 hi:
 
 \--------------------------
 
-msg_09
+msg_08
 ======
 
 tc: IF cohort=1
@@ -553,13 +488,13 @@ hv:
 
 fo:
 
-tr: GOTO msg_10
+tr: GOTO msg_09
 
 hi:
 
 \--------------------------
 
-msg_10
+msg_09
 ======
 
 tc: IF cohort=1
@@ -604,11 +539,11 @@ fo:
 
 tr:
 
->   GOTO msg_11 IF kinder_154=1
+>   GOTO msg_10 IF kinder_154=1
 
->   GOTO msg_11 IF kinder_154=MISSING AND kinderanz_154\<\>MISSING
+>   GOTO msg_10 IF kinder_154=MISSING AND kinderanz_154\<\>MISSING
 
->   GOTO msg_12 IF kinder_154=2 OR kinderanz_154==MISSING
+>   GOTO msg_11 IF kinder_154=2 OR kinderanz_154==MISSING
 
 hi: Die Angabe der Kinderanzahl darf nicht in Kombination mit „nein“ möglich
 sein!
@@ -617,7 +552,7 @@ Aus dem SLC QML adaptierter Vorschlag:
 
 \--------------------------
 
-msg_11
+msg_10
 ======
 
 tc: IF cohort=1
@@ -699,7 +634,7 @@ hv:
 
 fo:
 
-tr: GOTO msg_12
+tr: GOTO msg_11
 
 hi: mehrere Fragen und Fragetypen gleichzeitig auf einer Seite (je 2 mal, für
 erstes und zweites Kind, eine offene Abfrage, wann Kind geboren und
@@ -707,7 +642,7 @@ Einfachauswahl, ob im eigenen Haushalt wohnhaft ja/nein
 
 \--------------------------
 
-msg_12
+msg_11
 ======
 
 tc:
